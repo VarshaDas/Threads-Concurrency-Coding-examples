@@ -46,14 +46,6 @@ public class ThreadSafeIncDec {
 
         System.out.println("Final count = "+counter.get());
     }
-
-
-
-
-
-
-
-
 }
 
 

@@ -3,6 +3,8 @@ package Threads;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /*
 You are given the task of developing a generic concurrent file reader program that can read data from multiple text files concurrently using multiple threads.
@@ -13,14 +15,16 @@ Your goal is to design and implement a solution that allows seamless concurrent 
  */
 public class ConcurrentFileReaderExample {
 
-
     public static void main(String[] args) {
         // File paths for two files to read
         String file1Path = "/Users/vd056735/samplelogs1.txt";
         String file2Path = "/Users/vd056735/samplelogs2.txt";
 
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+
         // Shared StringBuilder to store the output from both files
 //        StringBuilder result = new StringBuilder();
+
 
         // Create two threads, one for each file
         Thread file1Thread = new Thread(() -> readFile(file1Path));
