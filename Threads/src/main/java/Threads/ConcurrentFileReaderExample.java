@@ -14,17 +14,10 @@ Your goal is to design and implement a solution that allows seamless concurrent 
  simultaneously process and print each data entry alongside the thread's name.
  */
 public class ConcurrentFileReaderExample {
-
     public static void main(String[] args) {
         // File paths for two files to read
         String file1Path = "/Users/vd056735/samplelogs1.txt";
         String file2Path = "/Users/vd056735/samplelogs2.txt";
-
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-
-        // Shared StringBuilder to store the output from both files
-//        StringBuilder result = new StringBuilder();
-
 
         // Create two threads, one for each file
         Thread file1Thread = new Thread(() -> readFile(file1Path));
@@ -41,16 +34,12 @@ public class ConcurrentFileReaderExample {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        // Print the combined output
-//        System.out.println(result.toString());
     }
 
     private static void readFile(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-//                content.append(line).append("\n");
                 Thread.sleep(4000);
                 System.out.println(Thread.currentThread().getName() + ": reads line  "+line);
             }

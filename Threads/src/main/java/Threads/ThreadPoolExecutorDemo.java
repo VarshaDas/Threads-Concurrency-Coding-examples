@@ -10,7 +10,7 @@ public class ThreadPoolExecutorDemo {
         ExecutorService executor = Executors.newFixedThreadPool(3);
 
         // Submit tasks for execution
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 100  ; i++) {
             int taskNumber = i;
             executor.execute(() -> {
                 System.out.println("Task " + taskNumber + " executed by " + Thread.currentThread().getName());
