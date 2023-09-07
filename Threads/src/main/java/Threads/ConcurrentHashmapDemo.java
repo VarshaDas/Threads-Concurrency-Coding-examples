@@ -1,6 +1,7 @@
 package Threads;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ConcurrentHashmapDemo {
     private static final int NUM_THREADS = 5;
