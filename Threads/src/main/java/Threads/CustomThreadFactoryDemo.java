@@ -11,13 +11,7 @@ public class CustomThreadFactoryDemo {
     public static void main(String[] args) {
         // Creating a custom thread factory
         ThreadFactory threadFactory = new CustomThreadFactory();
-
         // Creating a ThreadPoolExecutor with custom configuration
-        // Syntax: ThreadPoolExecutor executor = new ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime,            // Keep-alive time for idle threads
-    TimeUnit unit,                 // Time unit for keep-alive time
-    BlockingQueue<Runnable> workQueue, // Task queue
-    ThreadFactory threadFactory     // Thread factory
-);
         ThreadPoolExecutor executor = new ThreadPoolExecutor(
             3, //core pool size
             5,   //maximum pool size
