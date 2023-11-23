@@ -13,9 +13,21 @@ public class CustomThreadFactoryDemo {
         ThreadFactory threadFactory = new CustomThreadFactory();
 
         // Creating a ThreadPoolExecutor with custom configuration
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 5, 30, TimeUnit.SECONDS, new LinkedBlockingQueue<>(), threadFactory);
+        // Syntax: ThreadPoolExecutor executor = new ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime,            // Keep-alive time for idle threads
+    TimeUnit unit,                 // Time unit for keep-alive time
+    BlockingQueue<Runnable> workQueue, // Task queue
+    ThreadFactory threadFactory     // Thread factory
+);
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+            3, //core pool size
+            5,   //maximum pool size
+            30,  //keep-alive time
+            TimeUnit.SECONDS, //time unit for keep-alive time
+            new LinkedBlockingQueue<>(),   //task queue
+            threadFactory // default thread factory
+            );   
 
-        // Submitting tasks to the thread pool
+        //Submitting tasks to the thread pool
         for (int i = 1; i <= 10; i++) {
             final int taskId = i;
             executor.submit(() -> {
