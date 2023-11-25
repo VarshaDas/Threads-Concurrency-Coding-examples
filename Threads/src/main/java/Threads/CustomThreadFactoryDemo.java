@@ -30,5 +30,15 @@ public class CustomThreadFactoryDemo {
         }
         executor.shutdown();   //Shutting down the thread pool
     }
+   // Custom thread factory to create threads with a specific naming convention
+    static class CustomThreadFactory implements ThreadFactory {
+        private static int threadCount = 1;
 
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread thread = new Thread(r, "CustomThread-" + threadCount++);
+            return thread;
+        }
+    }
+}
 
