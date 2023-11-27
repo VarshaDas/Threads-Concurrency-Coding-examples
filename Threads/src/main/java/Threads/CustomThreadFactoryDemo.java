@@ -41,12 +41,3 @@ public class CustomThreadFactoryDemo {
         }
     }
 }
-
-
-    
-
-
-
-
-
-
