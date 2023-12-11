@@ -19,7 +19,6 @@ public class ProducerConsumerMultiple {
                 executorService.submit(new Consumer(queue, i));
             }
 
-            // Shutdown the executor service after some time
             executorService.shutdown();
         }
     }
