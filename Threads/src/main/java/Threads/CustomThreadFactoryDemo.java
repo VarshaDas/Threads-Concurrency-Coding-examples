@@ -38,7 +38,7 @@ public class CustomThreadFactoryDemo {
 
         @Override
         public Thread newThread(Runnable r) {
-            Thread thread = new Thread(r, "CustomThread-" + threadCount++);
+            Thread thread = new Thread(r, "MyCustomThread-" + threadCount++);
 
             return thread;
         }
