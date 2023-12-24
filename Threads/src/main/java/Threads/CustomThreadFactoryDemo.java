@@ -6,6 +6,11 @@ import java.util.concurrent.*;
  *
  * This program demonstrates the usage of ThreadPoolExecutor's various configuration parameters, including core pool size, maximum pool size, and keep-alive time. 
  * It uses a custom thread factory to create threads with a specific naming convention.
+ *
+ * You are tasked with designing a system that efficiently manages the execution of tasks using a thread pool.
+ *
+ *  The goal is to demonstrate the use of a custom thread factory to create threads with specific properties and
+ *  the configuration of a ThreadPoolExecutor.
  * 
  */
 
@@ -19,8 +24,8 @@ public class CustomThreadFactoryDemo {
             5,   //maximum pool size
             30,  //keep-alive time
             TimeUnit.SECONDS, //time unit for keep-alive time
-            new LinkedBlockingQueue<>(),   //task queue
-            threadFactory //thread factory
+            new LinkedBlockingQueue<>() //task queue
+//            threadFactory //thread factory
             );   
 
         //Submitting tasks to the thread pool
