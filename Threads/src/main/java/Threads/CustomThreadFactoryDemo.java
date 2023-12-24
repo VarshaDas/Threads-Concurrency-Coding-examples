@@ -17,6 +17,7 @@ import java.util.concurrent.*;
 public class CustomThreadFactoryDemo {
     public static void main(String[] args) {
         // Creating a custom thread factory
+
         ThreadFactory threadFactory = new CustomThreadFactory();
         // Creating a ThreadPoolExecutor with custom configuration
         ThreadPoolExecutor executor = new ThreadPoolExecutor(
@@ -24,8 +25,8 @@ public class CustomThreadFactoryDemo {
             5,   //maximum pool size
             30,  //keep-alive time
             TimeUnit.SECONDS, //time unit for keep-alive time
-            new LinkedBlockingQueue<>() //task queue
-//            threadFactory //thread factory
+            new LinkedBlockingQueue<>(), //task queue
+            threadFactory //thread factory
             );   
 
         //Submitting tasks to the thread pool
@@ -44,7 +45,6 @@ public class CustomThreadFactoryDemo {
         @Override
         public Thread newThread(Runnable r) {
             Thread thread = new Thread(r, "MyCustomThread-" + threadCount++);
-
             return thread;
         }
     }
