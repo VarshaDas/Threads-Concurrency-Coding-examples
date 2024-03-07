@@ -1,4 +1,4 @@
-package Threads;
+package ConcurrentCollections;
 
 import java.util.HashMap;
 import java.util.Iterator;

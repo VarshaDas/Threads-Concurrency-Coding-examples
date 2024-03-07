@@ -1,4 +1,4 @@
-package Threads;
+package Concurrency;
 
 import java.util.concurrent.CyclicBarrier;
 

@@ -1,4 +1,4 @@
-package Threads;
+package Concurrency.ProducerConsumer;
 
 import java.util.LinkedList;
 import java.util.Queue;

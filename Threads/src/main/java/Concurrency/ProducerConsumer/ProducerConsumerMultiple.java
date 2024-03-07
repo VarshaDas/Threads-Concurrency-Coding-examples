@@ -1,4 +1,4 @@
-package Executors;
+package Concurrency.ProducerConsumer;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
