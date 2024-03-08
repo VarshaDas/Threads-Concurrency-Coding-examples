@@ -20,7 +20,7 @@ public class ConcurrentFileReaderWithFuture {
         ExecutorService executor = Executors.newFixedThreadPool(5);
         List<Future<String>> futures = new ArrayList<>();
 
-        List<String> fileNames = List.of("E:\\file1.txt", "E:\\file2.txt", "E:\\file3.txt");
+        List<String> fileNames = List.of("file1.txt", "file2.txt", "file3.txt");
 
         // Issue: Blocking Call with get()
         // - The get() calls inside the loop block the main thread until each future completes its task.
