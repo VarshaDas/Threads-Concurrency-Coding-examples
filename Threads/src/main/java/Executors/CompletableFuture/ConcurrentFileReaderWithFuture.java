@@ -8,19 +8,24 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 
 public class ConcurrentFileReaderWithFuture {
 
+    /**
+     * Reads multiple files concurrently using Future interface.
+     *
+     * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
         ExecutorService executor = Executors.newFixedThreadPool(5);
         List<Future<String>> futures = new ArrayList<>();
 
         List<String> fileNames = List.of("E:\\file1.txt", "E:\\file2.txt", "E:\\file3.txt");
 
+        // Issue: Blocking Call with get()
+        // - The get() calls inside the loop block the main thread until each future completes its task.
         for (String fileName : fileNames) {
-            Future<String> future = executor.submit(() -> 
-                readFile(fileName));
+            Future<String> future = executor.submit(() -> readFile(fileName));
             futures.add(future);
         }
 
@@ -33,8 +38,12 @@ public class ConcurrentFileReaderWithFuture {
             }
         }
 
-        //Exception Handling 
-        /*Future<String> future1 = executor.submit(() -> {
+        // Exception Handling
+        // Issue: Limited Exception Handling
+        // - The get() method throws checked exceptions, leading to cumbersome exception handling,
+        // especially when dealing with multiple futures.
+        /*
+        Future<String> future1 = executor.submit(() -> {
             try {
                 return readFile("nonexistent.txt"); // Simulating non-existent file
             } catch (Exception e) {
@@ -46,35 +55,38 @@ public class ConcurrentFileReaderWithFuture {
             System.out.println("File content: " + content);
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
+        */
 
-        //Multiple futures cannot be combined/chained together
-        /*Future<String> future1 = executor.submit(() -> readFile("file1.txt"));
+        // Multiple futures cannot be combined/chained together
+        // Issue: Inability to Combine Futures
+        // - Future doesn't provide a straightforward way to combine or chain multiple futures together,
+        // making it difficult to handle dependencies between tasks.
+        /*
+        Future<String> future1 = executor.submit(() -> readFile("file1.txt"));
         Future<String> future2 = executor.submit(() -> readFile("file2.txt"));
 
-        future1.future2.get();*/ 
+        future1.future2.get();
+        */
 
         executor.shutdown();
     }
 
+    /**
+     * Reads the content of a file.
+     *
+     * @param fileName The name of the file to read.
+     * @return The content of the file.
+     * @throws IOException If an I/O error occurs.
+     */
     private static String readFile(String fileName) throws IOException {
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
-            //TimeUnit.MINUTES.sleep(1);
             while ((line = reader.readLine()) != null) {
                 content.append(line).append("\n");
             }
         }
-        /*catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
         return content.toString();
     }
 }
-
-
-
-    
-
-
