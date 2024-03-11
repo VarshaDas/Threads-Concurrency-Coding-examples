@@ -14,12 +14,29 @@ public class ScheduledExecutorDemo {
     public static void main(String[] args) {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3); //Creating a ScheduledExecutorService with 3 threads
 
-        Runnable task = () -> {
-            System.out.println("Task executed on: "+LocalDateTime.now().toString());
-        };
 
-        //schedule the task to run with an initial delay of 1 second and then every 5 seconds
-        scheduler.scheduleAtFixedRate(task, 1, 5, TimeUnit.SECONDS);
+//        scheduler.scheduleAtFixedRate(() -> {
+//            long currentTimeSeconds = System.currentTimeMillis() / 1000; // Convert milliseconds to seconds
+//            System.out.println("Task with fixed rate executed at: " + currentTimeSeconds + " seconds");
+//            try {
+//                Thread.sleep(4000); // Simulating task execution time
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }, 0, 3, TimeUnit.SECONDS);
+
+
+
+        scheduler.scheduleAtFixedRate(()->{
+            long currentTimeSeconds=System.currentTimeMillis()/1000;
+            System.out.println("Task with fixed delay executed at:"+currentTimeSeconds+" seconds");
+            try{
+                Thread.sleep(2000);
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        },3,3,TimeUnit.SECONDS);
+
 
         //keep the program running for a while to observe the periodic execution
         try {
