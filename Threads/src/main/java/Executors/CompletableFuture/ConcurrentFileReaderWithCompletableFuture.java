@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class ConcurrentFileReaderWithCompletableFuture {
 
     public static void main(String[] args) {
-        List<String> fileNames = List.of("file1.txt", "file2.txt", "file3.txt");
+        List<String> fileNames = List.of("Threads/src/main/resources/file1.txt", "Threads/src/main/resources/file2.txt", "Threads/src/main/resources/file3.txt");
 
         List<CompletableFuture<String>> futures = fileNames.stream()
                 .map(fileName -> CompletableFuture.supplyAsync(() -> readFile(fileName)))   //non-blocking
