@@ -1,1 +1,6 @@
-Hello World --from File 2
+[2024-03-15 12:45:01] INFO: Request received - GET /homepage
+[2024-03-15 12:45:02] INFO: Serving homepage to client 192.168.1.100
+[2024-03-15 12:47:30] INFO: Request received - POST /submit_form
+[2024-03-15 12:47:32] INFO: Form submission successful. Redirecting client to /thankyou
+[2024-03-15 12:50:10] WARNING: Request received - GET /admin_panel
+[2024-03-15 12:50:10] WARNING: Unauthorized access attempt from IP 203.0.113.10

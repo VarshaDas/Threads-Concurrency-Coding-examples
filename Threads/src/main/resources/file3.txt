@@ -1,1 +1,6 @@
-Hello World --from file 3
+[2024-03-15 15:20:05] INFO: User 'varsha' logged in.
+[2024-03-15 15:20:10] INFO: Retrieving user profile for 'varsha'
+[2024-03-15 15:20:15] INFO: Profile updated successfully for user 'varsha'
+[2024-03-15 15:25:00] ERROR: Internal server error occurred while processing request.
+[2024-03-15 15:25:05] ERROR: Exception caught: Division by zero.
+[2024-03-15 15:30:20] INFO: User 'alicia' logged in.

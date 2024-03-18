@@ -9,28 +9,34 @@ import java.util.stream.Collectors;
 
 public class ConcurrentFileReaderWithCompletableFuture {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         List<String> fileNames = List.of("Threads/src/main/resources/file1.txt", "Threads/src/main/resources/file2.txt", "Threads/src/main/resources/file3.txt");
 
         List<CompletableFuture<String>> futures = fileNames.stream()
-                .map(fileName -> CompletableFuture.supplyAsync(() -> readFile(fileName)))   //non-blocking
+                .map(fileName -> CompletableFuture.supplyAsync(() -> readFile(fileName)))
                 .collect(Collectors.toList());
 
 
-        //Combine all CompletableFutures into a single CompletableFuture that completes when all are done
         CompletableFuture<Void> allFutures = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
 
-        //Perform action when all CompletableFutures are completed
-        allFutures.thenRun(() -> {
+
+        allFutures.thenAccept(res -> {
             for (CompletableFuture<String> future : futures) {
-                try {  //Handle exceptions that may occur during file reading
-                    String content = future.get();
+                try {
+                    String content = future.get(); // This will not block because the futures are already completed
                     System.out.println("File content: " + content);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-        }).join();
+        });
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Main thread executing task " + i);
+            Thread.sleep(1000);
+        }
+
+
     }
 
     private static String readFile(String fileName) {
@@ -38,14 +44,12 @@ public class ConcurrentFileReaderWithCompletableFuture {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
+                Thread.sleep(1000);
                 content.append(line).append("\n");
             }
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
         return content.toString();
     }
 }
-
-    
-
