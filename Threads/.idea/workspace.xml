@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc437a59-579d-4809-91dc-3d77f2a9f5f6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Executors/ExecutorServiceDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executors/ExecutorServiceDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Executors/ScheduledExecutorDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executors/ScheduledExecutorDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Executors/ThreadLocal/CentralizedSessionAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executors/ThreadLocal/CentralizedSessionAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/DeadlockDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Threads/DeadlockDemo.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2dY1a6XwLB30uewhv8M57PNp6WC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AtomicIntegerExample.executor": "Debug",
+    "Application.CallableFutureRealWorldProblem.executor": "Debug",
+    "Application.CentralizedSessionAccess.executor": "Debug",
+    "Application.CheckThenActRaceCondition.executor": "Debug",
+    "Application.CompletableFutureDemo.executor": "Debug",
+    "Application.CounterExample.executor": "Debug",
+    "Application.CustomThreadFactoryExample.executor": "Debug",
+    "Application.DataProcessingSystem.executor": "Debug",
+    "Application.DeadlockDemo.executor": "Debug",
+    "Application.ExecutorServiceDemo.executor": "Debug",
+    "Application.HikingTrip.executor": "Debug",
+    "Application.InterruptDemo.executor": "Debug",
+    "Application.NoDeadlockExample.executor": "Debug",
+    "Application.ProducerConsumerDemo.executor": "Debug",
+    "Application.ProducerConsumerExample.executor": "Debug",
+    "Application.RaceConditionDemo.executor": "Debug",
+    "Application.ReadModifyWriteRaceCondition.executor": "Debug",
+    "Application.ReadWriteLockDemo.executor": "Debug",
+    "Application.ReentrantLockAdvantagesExample.executor": "Debug",
+    "Application.ScheduledExecutorDemo.executor": "Debug",
+    "Application.SemaphoreUsageExample.executor": "Debug",
+    "Application.SharedResourceDemo.executor": "Debug",
+    "Application.SynchronizedBlockDemo.executor": "Debug",
+    "Application.SynchronizedExample.executor": "Debug",
+    "Application.ThreadLocalSessionAccess.executor": "Debug",
+    "Application.WaitNotifyDemo.executor": "Debug",
+    "Application.WriteWriteRaceCondition.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "future",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/megha/Lexo-UI"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc437a59-579d-4809-91dc-3d77f2a9f5f6" name="Changes" comment="" />
+      <created>1710170257588</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710170257588</updated>
+    </task>
+    <servers />
+  </component>
+</project>

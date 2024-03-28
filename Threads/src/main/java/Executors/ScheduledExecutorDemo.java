@@ -12,7 +12,8 @@ This program demonstrates the usage of the ScheduledExecutorService to schedule 
 
 public class ScheduledExecutorDemo {
     public static void main(String[] args) {
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3); //Creating a ScheduledExecutorService with 3 threads
+        //Creating a ScheduledExecutorService with 3 threads
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(3);
 
 
 //        scheduler.scheduleAtFixedRate(() -> {
