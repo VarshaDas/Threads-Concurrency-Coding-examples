@@ -1,7 +1,6 @@
 package Threads;
 
-public class DeadlockDemo {
-
+public class NoDeadlockExample {
     private static final Object varsha_key = new Object();
     private static final Object harsha_key = new Object();
 
@@ -22,7 +21,7 @@ public class DeadlockDemo {
         });
 
         Thread harsha = new Thread(() -> {
-            synchronized (harsha_key) {
+            synchronized (varsha_key) { // Acquiring in the same order to prevent deadlock
                 System.out.println("Harsha has acquired her key");
                 try {
                     Thread.sleep(1000);
@@ -30,7 +29,7 @@ public class DeadlockDemo {
                     e.printStackTrace();
                 }
                 System.out.println("Harsha is waiting for Varsha's key");
-                synchronized (varsha_key) {
+                synchronized (harsha_key) {
                     System.out.println("Harsha has acquired Varsha's key");
                 }
             }
@@ -40,5 +39,3 @@ public class DeadlockDemo {
         harsha.start();
     }
 }
-
-

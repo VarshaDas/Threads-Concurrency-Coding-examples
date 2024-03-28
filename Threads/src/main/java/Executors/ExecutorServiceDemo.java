@@ -34,7 +34,7 @@ the scheduling and execution of the submitted tasks.
 public class ExecutorServiceDemo {
 
         public static void main(String[] args) {
-//             Create a ThreadPoolExecutor with a fixed number of threads
+            //Create a ThreadPoolExecutor with a fixed number of threads
             ExecutorService executor = Executors.newFixedThreadPool(3);
 
             for (int i = 1; i <= 5; i++) {

@@ -13,11 +13,12 @@ class SessionManager {
 
 public class CentralizedSessionAccess {
 
-    private static final SessionData sessionData = new SessionData(UUID.randomUUID().toString());  //global session data
+    private static final SessionData sessionData = new SessionData("10");  //global session data
     public static void main(String[] args) {
 
         // Approach 1: Modifying shared session data for global variable
         //Disadvantage: Race Condition
+        System.out.println("Global Access");
         for (int i = 0; i < 50; i++) {
             new Thread(() -> {
                 // Access shared session data and print session ID
@@ -35,6 +36,7 @@ public class CentralizedSessionAccess {
 
         // Approach 2: Create object for each thread(for synchronization)
         //Disadvantage: Performance issues
+        System.out.println("Separate Object Access");
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < 50; i++) { // Increased number of threads for heavier contention
             new Thread(() -> {
