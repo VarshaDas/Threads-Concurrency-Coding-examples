@@ -39,12 +39,15 @@ public class CompletableFutureDemo {
 
 
         // thenCompose
-        CompletableFuture<Integer> future3 = CompletableFuture.supplyAsync(() -> 20)
-                .thenCompose(result -> CompletableFuture.supplyAsync(() -> result * 2));
 
 
+        CompletableFuture<Integer> future3 = future1.thenCompose(result -> {
+            // Simulate another asynchronous operation dependent on the result of stage1
+            System.out.println("Stage 2 is running with result from stage 1: " + result);
+            return CompletableFuture.supplyAsync(() -> result * 5);
+        });
 
-        System.out.println("Futrure 3 "+future3.join());
+        System.out.println("Future 3 "+future3.join());
 
 
 //
@@ -67,6 +70,7 @@ public class CompletableFutureDemo {
             System.out.println("Exception occurred: " + exception.getMessage());
             return 0;
         });
+
 //
 //        // allOf
 //        CompletableFuture<Integer> future7 = CompletableFuture.supplyAsync(() -> 10);
