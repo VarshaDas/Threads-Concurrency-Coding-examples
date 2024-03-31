@@ -25,7 +25,7 @@ public class RaceConditionDemo {
     public static void main(String[] args) throws InterruptedException {
         // Create and start threads
         Thread thread1 = new Thread(() -> readModifyWriteRace());
-        Thread thread2 = new Thread(() -> writeWriteRace());
+        Thread thread2 = new Thread(() -> readModifyWriteRace());
 
         thread1.start();
         thread2.start();

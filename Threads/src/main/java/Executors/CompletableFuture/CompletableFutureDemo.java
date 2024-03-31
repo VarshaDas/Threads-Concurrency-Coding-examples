@@ -9,12 +9,13 @@ public class CompletableFutureDemo {
         CompletableFuture<Integer> future1 = CompletableFuture.supplyAsync(() -> {
             // Simulate a long-running computation
             try {
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             return 10;
         });
+
         // Use the result of the CompletableFuture
         future1.thenAccept(result -> System.out.println("Result: " + result));
 
@@ -32,16 +33,32 @@ public class CompletableFutureDemo {
 
 
         // thenApply
-        CompletableFuture<String> future2 = future1.thenApply(result -> "Transformed Result: " + result);
+        CompletableFuture<Integer> future2 = future1.thenApply(result ->  20 * result);
+
+        System.out.println("Future 2: " +future2.join());
+
 
         // thenCompose
         CompletableFuture<Integer> future3 = CompletableFuture.supplyAsync(() -> 20)
                 .thenCompose(result -> CompletableFuture.supplyAsync(() -> result * 2));
 
-        // thenCombine
+
+
+        System.out.println("Future 3 "+future3.join());
+
+
+//
+//        // thenCombine
         CompletableFuture<Integer> future4 = CompletableFuture.supplyAsync(() -> 10);
         CompletableFuture<Integer> future5 = CompletableFuture.supplyAsync(() -> 20);
         CompletableFuture<Integer> combinedFuture = future4.thenCombine(future5, (result1, result2) -> result1 + result2);
+
+
+
+        CompletableFuture.allOf(future1, future, future2, future3, combinedFuture).join();
+
+        System.out.println("Combined Future -"+combinedFuture.join());
+
 
         // exceptionally
         CompletableFuture<Object> future6 = CompletableFuture.supplyAsync(() -> {
@@ -50,46 +67,60 @@ public class CompletableFutureDemo {
             System.out.println("Exception occurred: " + exception.getMessage());
             return 0;
         });
-
         // allOf
-        CompletableFuture<Integer> future7 = CompletableFuture.supplyAsync(() -> 10);
-        CompletableFuture<Integer> future8 = CompletableFuture.supplyAsync(() -> 20);
-        CompletableFuture<Void> allFutures = CompletableFuture.allOf(future7, future8);
+          CompletableFuture<Integer> future7 = CompletableFuture.supplyAsync(() -> 10);
+          CompletableFuture<Integer> future8 = CompletableFuture.supplyAsync(() -> 20);
+          CompletableFuture<Void> allFutures = CompletableFuture.allOf(future7, future8);
 
-        // thenRun
-        allFutures.thenRun(() -> System.out.println("All futures completed"));
+          // thenRun
+          allFutures.thenRun(() -> System.out.println("All futures completed"));
 
-        // Join all futures to wait for their completion
-        CompletableFuture.allOf(future1, future2, future3, future4, future5, future6, future7, future8).join();
+          // Join all futures to wait for their completion
+          CompletableFuture.allOf(future1, future2, future3, future4, future5, future6, future7, future8).join();
+//
+//        CompletableFuture<String> future9 = new CompletableFuture<>();
+//
+//        // Complete the future with a value after a delay
+//        CompletableFuture.delayedExecutor(2, TimeUnit.SECONDS)
+//                .execute(() -> future9.complete("Result"));
+//
+//        // Complete the future with a default value if it hasn't been completed before the timeout
+//        future9.completeOnTimeout("Default", 1, TimeUnit.SECONDS);
+//
+//        // Wait for the future to complete and print the result
+//        try {
+//            String result = future9.get();
+//            System.out.println("Result: " + result);
+//        } catch (Exception e) {
+//            System.out.println("Exception: " + e);
+//        }
+//
+//        CompletableFuture<Integer> future10 = CompletableFuture.supplyAsync(() -> {
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                System.out.println("Task was interrupted.");
+//            }
+//            return 42;
+//        });
+//
+//        boolean cancelled = future10.cancel(true);
+//        System.out.println("Task cancelled: " + cancelled);
 
-        CompletableFuture<String> future9 = new CompletableFuture<>();
 
-        // Complete the future with a value after a delay
-        CompletableFuture.delayedExecutor(2, TimeUnit.SECONDS)
-                .execute(() -> future9.complete("Result"));
+        // Exception Handling
+        // Issue: Limited Exception Handling
 
-        // Complete the future with a default value if it hasn't been completed before the timeout
-        future9.completeOnTimeout("Default", 1, TimeUnit.SECONDS);
+        // Multiple futures cannot be combined/chained together
+        // Issue: Inability to Combine Futures
+        // - Future doesn't provide a straightforward way to combine or chain multiple futures together,
+        // making it difficult to handle dependencies between tasks.
+        /*
+        Future<String> future1 = executor.submit(() -> readFile("file1.txt"));
+        Future<String> future2 = executor.submit(() -> readFile("file2.txt"));
 
-        // Wait for the future to complete and print the result
-        try {
-            String result = future9.get();
-            System.out.println("Result: " + result);
-        } catch (Exception e) {
-            System.out.println("Exception: " + e);
-        }
-
-        CompletableFuture<Integer> future10 = CompletableFuture.supplyAsync(() -> {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                System.out.println("Task was interrupted.");
-            }
-            return 42;
-        });
-
-        boolean cancelled = future10.cancel(true);
-        System.out.println("Task cancelled: " + cancelled);
+        future1.future2.get();
+        */
     }
-    
+
 }

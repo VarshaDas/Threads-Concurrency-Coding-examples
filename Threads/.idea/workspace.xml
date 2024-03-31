@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc437a59-579d-4809-91dc-3d77f2a9f5f6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Executors/ExecutorServiceDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executors/ExecutorServiceDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Executors/ScheduledExecutorDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executors/ScheduledExecutorDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Executors/ThreadLocal/CentralizedSessionAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executors/ThreadLocal/CentralizedSessionAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/DeadlockDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Threads/DeadlockDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Threads/BinarySemaphoreDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Executors/CompletableFuture/CompletableFutureDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executors/CompletableFuture/CompletableFutureDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/CustomThreadFactoryExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/RaceConditionDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Threads/RaceConditionDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/ReadModifyWriteRaceCondition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/ReadWriteLockDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Threads/ReadWriteLockDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/ReentrantLockAdvantagesExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Threads/ReentrantLockDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/SemaphoreDemo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/SemaphoreUsageExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Threads/WriteWriteRaceCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Threads/WriteWriteRaceCondition.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,17 +48,21 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AtomicIntegerExample.executor": "Debug",
+    "Application.BinarySemaphoreDemo.executor": "Debug",
     "Application.CallableFutureRealWorldProblem.executor": "Debug",
     "Application.CentralizedSessionAccess.executor": "Debug",
     "Application.CheckThenActRaceCondition.executor": "Debug",
     "Application.CompletableFutureDemo.executor": "Debug",
     "Application.CounterExample.executor": "Debug",
+    "Application.CountingSemaphoreExample.executor": "Debug",
+    "Application.CustomThreadFactoryDemo.executor": "Debug",
     "Application.CustomThreadFactoryExample.executor": "Debug",
     "Application.DataProcessingSystem.executor": "Debug",
     "Application.DeadlockDemo.executor": "Debug",
     "Application.ExecutorServiceDemo.executor": "Debug",
     "Application.HikingTrip.executor": "Debug",
     "Application.InterruptDemo.executor": "Debug",
+    "Application.Main.executor": "Debug",
     "Application.NoDeadlockExample.executor": "Debug",
     "Application.ProducerConsumerDemo.executor": "Debug",
     "Application.ProducerConsumerExample.executor": "Debug",
@@ -59,17 +70,20 @@
     "Application.ReadModifyWriteRaceCondition.executor": "Debug",
     "Application.ReadWriteLockDemo.executor": "Debug",
     "Application.ReentrantLockAdvantagesExample.executor": "Debug",
+    "Application.ReentrantLockDemo.executor": "Debug",
     "Application.ScheduledExecutorDemo.executor": "Debug",
+    "Application.SemaphoreDemo.executor": "Debug",
     "Application.SemaphoreUsageExample.executor": "Debug",
     "Application.SharedResourceDemo.executor": "Debug",
     "Application.SynchronizedBlockDemo.executor": "Debug",
     "Application.SynchronizedExample.executor": "Debug",
     "Application.ThreadLocalSessionAccess.executor": "Debug",
+    "Application.TicketBookingSystem.executor": "Debug",
     "Application.WaitNotifyDemo.executor": "Debug",
     "Application.WriteWriteRaceCondition.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "future",
+    "git-widget-placeholder": "threads-programs",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/megha/Lexo-UI"
   }
@@ -91,5 +105,16 @@
       <updated>1710170257588</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

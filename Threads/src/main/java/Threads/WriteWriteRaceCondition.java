@@ -6,13 +6,13 @@ public class WriteWriteRaceCondition {
     public static void main(String[] args) throws InterruptedException {
         Thread thread1 = new Thread(() -> {
             for (int i = 0; i < 10000; i++) {
-                counter++;
+                counter=1;
             }
         });
 
         Thread thread2 = new Thread(() -> {
             for (int i = 0; i < 10000; i++) {
-                counter++;
+                counter=2;
             }
         });
 
